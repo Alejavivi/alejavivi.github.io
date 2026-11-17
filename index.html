@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio de Alessandro J. Acevedo Peña: programador de gameplay y motores, y backend developer. Proyectos, experiencia y contacto.">
+<meta name="theme-color" content="#020822">
+<meta property="og:title" content="Alessandro Acevedo">
+<meta property="og:description" content="Portfolio de Alessandro J. Acevedo Peña: programador de gameplay y motores, y backend developer. Proyectos, experiencia y contacto.">
+<meta property="og:image" content="clips/beerserker-poster.jpg">
+<style>html{color-scheme:dark;background:#020822}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Alessandro Acevedo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=Big+Shoulders+Display:wght@700;800;900&display=swap">
+<style>
+/* Layout concept: a Persona 3 Reload style menu. Slanted slabs stacked on the left, the selected one pushed out in white with a cyan echo; a notched content panel on the right; a slow tick-ring clock behind everything. One committed look: deep navy and electric blue, so dark values live on bare :root. */
+:root {
+  --bg: #020822;
+  --bg-mid: #04114f;
+  --blue: #1459ff;
+  --blue-deep: #0a2fb8;
+  --cyan: #22d6ff;
+  --ice: #eaf7ff;
+  --ink: #020a2c;
+  --dim: #a9c0ff;
+  --line: rgba(34, 214, 255, 0.42);
+  --slab: rgba(20, 89, 255, 0.38);
+  --card: rgba(20, 89, 255, 0.14);
+  --display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
+  --body: 'Barlow', 'Segoe UI', system-ui, sans-serif;
+  --label: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ice);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.5;
+  min-height: 100%;
+  overflow-x: clip;
+}
+.bg {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  background:
+    radial-gradient(110% 80% at 85% 0%, #0b3bd6 0%, transparent 55%),
+    radial-gradient(90% 70% at 0% 100%, var(--blue-deep) 0%, transparent 60%),
+    linear-gradient(160deg, var(--bg-mid), var(--bg) 70%);
+}
+.bg::before {
+  content: ""; position: absolute; inset: -20%;
+  background: repeating-linear-gradient(115deg, rgba(34, 214, 255, 0.07) 0 2px, transparent 2px 52px);
+}
+.ring {
+  position: absolute; right: -16vmin; top: 50%;
+  width: 92vmin; height: 92vmin; margin-top: -46vmin; border-radius: 50%;
+  background: repeating-conic-gradient(var(--cyan) 0 0.5deg, transparent 0.5deg 6deg);
+  -webkit-mask: radial-gradient(circle, transparent 61%, #000 61.5%, #000 66%, transparent 66.5%);
+  mask: radial-gradient(circle, transparent 61%, #000 61.5%, #000 66%, transparent 66.5%);
+  opacity: 0.28;
+  animation: spin 180s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.wrap {
+  position: relative; z-index: 1;
+  max-width: 1240px; margin: 0 auto;
+  padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 36px;
+}
+
+/* header */
+.top { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; padding-bottom: 22px; }
+.who { min-width: 0; }
+.eyebrow { font-family: var(--label); font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cyan); font-size: 0.95rem; }
+.name { font-family: var(--display); font-weight: 900; text-transform: uppercase; line-height: 0.9; margin: 4px 0 0; font-size: clamp(2.1rem, 5.4vw, 4rem); display: inline-block; transform: skewX(-10deg); transform-origin: left bottom; text-shadow: 4px 4px 0 var(--blue); text-wrap: balance; }
+.right { display: flex; align-items: flex-end; gap: 22px; margin-left: auto; }
+.lang { display: flex; gap: 6px; }
+.lang button { font-family: var(--label); font-weight: 700; letter-spacing: 0.14em; font-size: 0.95rem; color: var(--ice); background: transparent; border: 1px solid var(--line); padding: 4px 12px; cursor: pointer; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+.lang button[aria-pressed="true"] { background: var(--cyan); color: var(--ink); border-color: var(--cyan); }
+.date { text-align: right; line-height: 1; }
+.date .md { font-family: var(--display); font-weight: 900; font-size: clamp(2.4rem, 6vw, 3.8rem); letter-spacing: 0.02em; display: inline-block; transform: skewX(-10deg); font-variant-numeric: tabular-nums; }
+.date .dow { display: block; margin-top: 4px; font-family: var(--label); font-weight: 700; letter-spacing: 0.22em; font-size: 0.9rem; text-transform: uppercase; background: var(--cyan); color: var(--ink); padding: 2px 12px; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); width: fit-content; margin-left: auto; }
+
+/* stage */
+.stage { display: grid; grid-template-columns: minmax(250px, 370px) minmax(0, 1fr); gap: clamp(20px, 3.5vw, 52px); align-items: start; }
+.side { position: sticky; top: 20px; align-self: start; }
+.menu { display: grid; gap: 14px; padding-right: 30px; }
+.tab {
+  position: relative; isolation: isolate; width: 100%;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding: 10px 30px 10px 26px;
+  background: none; border: 0; color: var(--ice); cursor: pointer; text-align: left;
+  font-family: var(--display); font-weight: 900; font-size: clamp(2rem, 3.4vw, 2.8rem); line-height: 1; letter-spacing: 0.03em; text-transform: uppercase;
+  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.25), color 0.15s;
+}
+.tab .t { display: inline-block; transform: skewX(-9deg); }
+.tab small { font-family: var(--label); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.2em; opacity: 0.8; }
+.tab::after, .tab::before { content: ""; position: absolute; inset: 0; clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%); }
+.tab::after { z-index: -1; background: var(--slab); transition: background 0.15s; }
+.tab::before { z-index: -2; background: var(--cyan); transform: translate(8px, 8px); opacity: 0; transition: opacity 0.15s; }
+.tab:hover::after { background: rgba(34, 214, 255, 0.34); }
+.tab[aria-selected="true"] { color: var(--ink); transform: translateX(16px); }
+.tab[aria-selected="true"]::after { background: var(--ice); }
+.tab[aria-selected="true"]::before { opacity: 1; }
+.tab:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+.hint { margin: 22px 0 0; font-family: var(--label); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.85rem; color: var(--dim); }
+.hint kbd { font-family: var(--label); border: 1px solid var(--line); padding: 0 6px; margin-right: 4px; color: var(--ice); }
+
+/* panel */
+.panel { position: relative; min-width: 0; background: linear-gradient(180deg, rgba(3, 16, 74, 0.9), rgba(2, 8, 34, 0.94)); border-left: 6px solid var(--cyan); clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%); padding: 0 clamp(18px, 3vw, 40px) 36px; }
+.panel-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 24px 0 14px; border-bottom: 2px solid var(--line); margin-bottom: 26px; }
+.panel-head h1 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(3rem, 8vw, 6rem); line-height: 0.85; margin: 0; transform: skewX(-10deg); transform-origin: left bottom; text-shadow: 5px 5px 0 var(--blue); min-width: 0; overflow-wrap: anywhere; }
+.panel-head .tag { margin-right: 36px; }
+.panel-body { animation: slide 0.34s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes slide { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; animation-delay: calc(var(--i, 0) * 70ms + 60ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+.lead { font-size: clamp(1.15rem, 2vw, 1.4rem); max-width: 40ch; margin: 0 0 26px; text-wrap: pretty; }
+.facts { display: grid; margin: 0; }
+.facts > div { display: grid; grid-template-columns: minmax(110px, 170px) minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
+.facts dt { font-family: var(--label); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cyan); font-size: 0.95rem; padding-top: 3px; }
+.facts dd { margin: 0; font-size: 1.1rem; }
+.open { display: inline-block; font-family: var(--label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; background: var(--cyan); color: var(--ink); padding: 0 12px; margin-right: 8px; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+
+.entry { position: relative; padding: 20px 22px 18px 26px; margin-bottom: 20px; background: var(--card); border: 1px solid var(--line); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%); }
+.entry::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--blue); }
+.entry h2 { font-family: var(--display); font-weight: 800; font-size: clamp(1.8rem, 3.2vw, 2.5rem); line-height: 1; text-transform: uppercase; margin: 0; letter-spacing: 0.01em; overflow-wrap: anywhere; text-wrap: balance; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 8px 0 10px; font-family: var(--label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); font-size: 0.98rem; }
+.entry p { margin: 0 0 10px; color: var(--dim); max-width: 62ch; }
+.entry ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.entry li { position: relative; padding-left: 24px; max-width: 66ch; }
+.entry li::before { content: ""; position: absolute; left: 3px; top: 0.62em; width: 11px; height: 6px; background: var(--cyan); transform: skewX(-30deg); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.tag { font-family: var(--label); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.85rem; padding: 2px 14px; background: var(--cyan); color: var(--ink); clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+.tag.ghost { background: rgba(34, 214, 255, 0.16); color: var(--ice); }
+.role { display: inline-block; margin: 0 0 8px; font-family: var(--label); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.9rem; color: var(--ink); background: var(--cyan); padding: 1px 16px; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+
+.jams { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.jams li { padding-left: 24px; }
+
+/* project filters */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; }
+.chip { font-family: var(--label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.95rem; padding: 5px 18px; background: transparent; color: var(--ice); border: 1px solid var(--line); cursor: pointer; clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
+.chip:hover { background: rgba(34, 214, 255, 0.25); }
+.chip[aria-pressed="true"] { background: var(--ice); color: var(--ink); border-color: var(--ice); }
+.chip:focus-visible, .more summary:focus-visible, .pp:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+/* project media */
+.mediawrap { position: relative; margin: 0 0 18px; padding: 3px; background: var(--cyan); clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px)); }
+.media { position: relative; background: #000; aspect-ratio: var(--ar, 16 / 9); max-width: 100%; clip-path: polygon(0 0, calc(100% - 27px) 0, 100% 27px, 100% 100%, 27px 100%, 0 calc(100% - 27px)); }
+.media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.cap { position: absolute; left: 14px; top: 14px; font-family: var(--label); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.85rem; padding: 2px 14px; background: var(--ice); color: var(--ink); clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+.pp { position: absolute; right: 14px; bottom: 14px; font-family: var(--label); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.85rem; padding: 3px 16px; background: var(--cyan); color: var(--ink); border: 0; cursor: pointer; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+.pp:hover { background: var(--ice); }
+
+/* full breakdown */
+.more { margin-top: 16px; border-top: 1px solid var(--line); }
+.more summary { list-style: none; cursor: pointer; padding: 12px 0 4px; display: flex; justify-content: space-between; align-items: center; font-family: var(--label); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cyan); font-size: 0.98rem; }
+.more summary::-webkit-details-marker { display: none; }
+.more summary::after { content: "+"; font-family: var(--display); font-weight: 900; font-size: 1.8rem; line-height: 1; }
+.more[open] summary::after { content: "\2013"; }
+.more .facts { margin-top: 8px; }
+.more .facts > div { padding: 9px 0; }
+.more .facts dd { font-size: 1rem; }
+
+.skillgrid { display: grid; gap: 22px; }
+.skillgrid h2 { font-family: var(--label); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; font-size: 1rem; color: var(--cyan); margin: 0 0 10px; }
+.skillgrid .tags { margin-top: 0; }
+.skillgrid .tag { font-size: 1rem; padding: 4px 16px; }
+
+.contacts { display: grid; gap: 14px; }
+.contact { display: grid; grid-template-columns: minmax(90px, 140px) minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 16px 20px; background: var(--card); border: 1px solid var(--line); }
+.contact .k { font-family: var(--label); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cyan); font-size: 0.95rem; }
+.contact .v { font-size: 1.15rem; overflow-wrap: anywhere; min-width: 0; user-select: all; }
+.contact a { color: var(--ice); text-decoration-color: var(--cyan); text-underline-offset: 4px; }
+.btn { font-family: var(--label); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.9rem; background: var(--ice); color: var(--ink); border: 0; padding: 6px 18px; cursor: pointer; clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
+.btn:hover { background: var(--cyan); }
+.btn:focus-visible, .lang button:focus-visible, .contact a:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+@media (max-width: 860px) {
+  .stage { grid-template-columns: minmax(0, 1fr); }
+  .side { top: env(safe-area-inset-top, 0px); z-index: 5; background: rgba(2, 8, 34, 0.94); margin-inline: -8px; padding-inline: 8px; }
+  .menu { position: static; display: flex; overflow-x: auto; gap: 10px; padding: 6px 12px 16px 0; scroll-snap-type: x proximity; }
+  .tab { width: auto; flex: 0 0 auto; font-size: 1.45rem; padding: 8px 24px 8px 20px; scroll-snap-align: start; }
+  .tab small { display: none; }
+  .tab[aria-selected="true"] { transform: none; }
+  .tab::before { transform: translate(5px, 5px); }
+  .hint { display: none; }
+  .right { width: 100%; justify-content: space-between; }
+  .contact { grid-template-columns: minmax(0, 1fr) auto; }
+  .contact .k { grid-column: 1 / -1; }
+  .facts > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .panel-head .tag { display: none; }
+  .entry { padding: 16px 16px 16px 20px; }
+  .cap { left: 10px; top: 10px; font-size: 0.78rem; letter-spacing: 0.1em; }
+  .pp { right: 10px; bottom: 10px; }
+  .role { font-size: 0.8rem; letter-spacing: 0.12em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ring, .panel-body, .rise { animation: none; }
+  .tab { transition: none; }
+}
+</style>
+
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="ring"></div></div>
+<div class="wrap">
+  <header class="top">
+    <div class="who">
+      <div class="eyebrow" id="eyebrow"></div>
+      <h1 class="name">Alessandro J. Acevedo Peña</h1>
+    </div>
+    <div class="right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="lang-en" data-lang="en">EN</button>
+        <button type="button" id="lang-es" data-lang="es">ES</button>
+      </div>
+      <div class="date" aria-hidden="true"><span class="md" id="md"></span><span class="dow" id="dow"></span></div>
+    </div>
+  </header>
+
+  <div class="stage">
+    <div class="side">
+      <nav class="menu" id="menu" role="tablist" aria-orientation="vertical" aria-label="Sections"></nav>
+      <p class="hint" id="hint"></p>
+    </div>
+    <main class="panel" id="panel" role="tabpanel" aria-live="polite"></main>
+  </div>
+</div>
+
+<script>
+(function () {
+  var SECTIONS = ['projects', 'status', 'experience', 'skills', 'contact'];
+
+  var D = {
+    en: {
+      eyebrow: 'Gameplay & engine programmer · Backend developer',
+      hint: '<kbd>↑</kbd><kbd>↓</kbd> move in the menu',
+      copy: 'Copy', copied: 'Copied', play: 'Play', pause: 'Pause', more: 'Full breakdown',
+      filters: { all: 'All', shipped: 'Shipped', engine: 'Engine', unreal: 'Unreal', unity: 'Unity', lowlevel: 'Low-level' },
+      menu: { status: ['Status', 'Profile'], experience: ['Experience', 'Work'], projects: ['Projects', 'Builds'], skills: ['Skills', 'Tech'], contact: ['Contact', 'Reach'] },
+      status: {
+        lead: 'I build gameplay, AI and engine tech in Unreal, Unity and C++, and backend systems in Kotlin.',
+        facts: [
+          ['Based in', 'Valencia, Spain'],
+          ['Education', 'HND, ESAT Valencia · 2023 – 2026'],
+          ['Now', 'Backend Developer I at Cacty'],
+          ['Languages', 'Spanish (native) · English (professional)'],
+          ['Availability', '<span class="open">Open to work</span>On-site, hybrid or remote']
+        ]
+      },
+      experience: [
+        { name: 'Cacty', role: 'Backend Developer I', when: 'Aug 2025 – Present', where: 'Remote',
+          blurb: 'AI-powered identity verification (KYC) platform.',
+          bullets: [
+            'Develop reactive microservices in Kotlin and Spring Boot (WebFlux, R2DBC) on PostgreSQL, Redis and Kafka.',
+            'Built features of an OTP contact-verification service: SMS and email validation, code delivery, lifecycle events and per-channel metrics.',
+            'Implemented an AML sanctions-screening service that integrates an external OFAC API, with risk levels and event publishing.',
+            'Contributed to a double-entry ledger service. Work ships through pull requests and CI pipelines on Bitbucket.'
+          ] },
+        { name: 'Grumpy Games', role: 'Programmer', when: 'Sep 2025 – Jul 2026', where: 'Valencia, Spain',
+          blurb: 'Gameplay programmer on Beerserker: The Stolen Brew, released on Steam. Built in Unreal Engine.',
+          bullets: [
+            'Implemented AI behaviour with Behavior Trees and State Trees.',
+            'Integrated FMOD audio into the game.',
+            'Programmed gameplay hazards.'
+          ] }
+      ],
+      projects: [
+        { name: 'Beerserker: The Stolen Brew', role: 'Gameplay programmer', kind: 'Released on Steam · Unreal Engine', when: 'Sep 2025 – Jul 2026 · Grumpy Games',
+          media: { src: 'clips/beerserker.mp4', poster: 'clips/beerserker-poster.jpg', ar: '16 / 9', cap: 'In-game footage' },
+          bullets: [
+            'Implemented AI behaviour with Behavior Trees and State Trees.',
+            'Integrated FMOD audio into the game.',
+            'Programmed gameplay hazards.'
+          ],
+          tags: ['Unreal Engine', 'FMOD', 'Behavior Trees', 'State Trees'], cats: ['shipped', 'unreal'],
+          details: [['Role', 'Gameplay programmer, part-time'], ['Studio', 'Grumpy Games, Valencia'], ['Period', 'Sep 2025 – Jul 2026 (11 months)'], ['Platform', 'Steam'], ['Engine', 'Unreal Engine'], ['My work', 'AI behaviour with Behavior Trees and State Trees, FMOD audio integration, gameplay hazards']] },
+        { name: 'Nowhere Engine', role: 'Engine programmer', kind: '3D rendering engine · C++20', when: 'Oct 2025 – May 2026 · Team of 2',
+          media: { src: 'clips/nowhere.mp4', poster: 'clips/nowhere-poster.jpg', ar: '16 / 9', cap: 'Engine demo scene' },
+          bullets: [
+            'Co-developed an engine with an OpenGL backend, a Vulkan backend in progress, an archetype-based ECS, Lua scripting and an ImGui editor.',
+            'Implemented the input manager, entity and job system, Assimp model loader, camera system, shadow mapping and skybox.',
+            'Integrated JoltPhysics with a collider debug view and editor panel, and worked on the animation system.'
+          ],
+          tags: ['C++20', 'OpenGL', 'Vulkan', 'ECS', 'Lua', 'ImGui', 'JoltPhysics'], cats: ['engine'],
+          details: [['Role', 'Engine programmer, co-developer'], ['Team', '2 programmers'], ['Period', 'Oct 2025 – May 2026'], ['Rendering', 'OpenGL backend, Vulkan backend in progress, shadow mapping, skybox'], ['Architecture', 'Archetype-based ECS, job system, Lua scripting, ImGui editor'], ['Physics', 'JoltPhysics: rigid bodies, colliders, Play/Stop flow, debug view'], ['Quality', '262 test cases passing and 44 shaders validated (project README, May 2026)']] },
+        { name: 'yo bro your house is being demolished btw', role: 'Gameplay programmer', kind: 'GMTK Game Jam 2026 · Unity', when: 'Jul 2026 · Team project',
+          media: { src: 'clips/gmtk26.mp4', poster: 'clips/gmtk26-poster.jpg', ar: '3 / 2', cap: 'Gameplay footage' },
+          bullets: ['Grab-and-drag physics interactions: player controller, pickups, rope arm, drop-off zones and weight-gated doors.'],
+          tags: ['Unity', 'C#', 'Game jam'], cats: ['unity'],
+          details: [['Role', 'Gameplay programmer'], ['Event', 'GMTK Game Jam 2026'], ['Period', 'Jul 2026'], ['Engine', 'Unity, C#'], ['My work', 'Player controller, pickups, grab-and-drag physics, rope arm, drop-off zones, weight-gated doors']] },
+        { name: 'Julia Set Renderer', role: 'Low-level programmer', kind: 'C vs. AArch64 assembly', when: 'Low-level programming',
+          bullets: ['Benchmarked C and AArch64 assembly implementations of a Julia set fractal renderer (tile-based rendering, fixed-point arithmetic) and summarised the results statistically.'],
+          tags: ['C', 'AArch64 assembly'], cats: ['lowlevel'],
+          details: [['Focus', 'Tile-based rendering and fixed-point arithmetic'], ['Work', 'C and AArch64 assembly versions compared with statistical benchmarking'], ['Context', 'Low-level programming coursework']] },
+        { name: 'More Game Jams', role: 'Gameplay programmer', kind: 'Unity · C#', when: 'Team projects',
+          jams: [
+            '<b>T/N Game Jam</b> (Jan–Feb 2026): several minigames (worm, suture, CPR) and the audio manager.',
+            '<b>GMTK Game Jam 2025</b> (Aug 2025): a robot customiser, its UI and the combat prototype.'
+          ],
+          tags: ['Unity', 'C#', 'Game jam'], cats: ['unity'] }
+      ],
+      skills: [
+        ['Languages', ['Kotlin', 'C++', 'C#', 'C', 'AArch64 assembly', 'Lua', 'SQL']],
+        ['Backend', ['Spring Boot', 'WebFlux', 'R2DBC', 'Coroutines', 'Kafka', 'PostgreSQL', 'Redis', 'Flyway', 'REST / OpenAPI']],
+        ['Game development', ['Unreal Engine', 'Unity', 'FMOD', 'Behavior Trees', 'State Trees', 'OpenGL', 'Vulkan', 'ECS', 'JoltPhysics', 'ImGui']],
+        ['Tools', ['Git', 'Docker', 'Gradle', 'Bitbucket Pipelines']]
+      ],
+      contact: { rows: [['Email', 'alejaviace4@gmail.com', 'copy'], ['GitHub', 'github.com/Alejavivi', 'https://github.com/Alejavivi'], ['LinkedIn', 'linkedin.com/in/alessandro-j-acevedo-peña-1a7b96349', 'https://www.linkedin.com/in/alessandro-j-acevedo-pe%C3%B1a-1a7b96349/']] }
+    },
+    es: {
+      eyebrow: 'Programador de gameplay y motores · Backend developer',
+      hint: '<kbd>↑</kbd><kbd>↓</kbd> moverse por el menú',
+      copy: 'Copiar', copied: 'Copiado', play: 'Reproducir', pause: 'Pausa', more: 'Detalle completo',
+      filters: { all: 'Todos', shipped: 'Publicado', engine: 'Motor', unreal: 'Unreal', unity: 'Unity', lowlevel: 'Bajo nivel' },
+      menu: { status: ['Estado', 'Perfil'], experience: ['Experiencia', 'Trabajo'], projects: ['Proyectos', 'Obras'], skills: ['Habilidades', 'Tech'], contact: ['Contacto', 'Hablemos'] },
+      status: {
+        lead: 'Construyo gameplay, IA y tecnología de motor en Unreal, Unity y C++, y sistemas de backend en Kotlin.',
+        facts: [
+          ['Ubicación', 'Valencia, España'],
+          ['Formación', 'HND, ESAT Valencia · 2023 – 2026'],
+          ['Ahora', 'Backend Developer I en Cacty'],
+          ['Idiomas', 'Español (nativo) · Inglés (profesional)'],
+          ['Disponibilidad', '<span class="open">Busco empleo</span>Presencial, híbrido o remoto']
+        ]
+      },
+      experience: [
+        { name: 'Cacty', role: 'Backend Developer I', when: 'Ago 2025 – Actualidad', where: 'Remoto',
+          blurb: 'Plataforma de verificación de identidad (KYC) con inteligencia artificial.',
+          bullets: [
+            'Desarrollo microservicios reactivos en Kotlin y Spring Boot (WebFlux, R2DBC) sobre PostgreSQL, Redis y Kafka.',
+            'Construí funciones de un servicio de verificación de contacto por OTP: validación por SMS y email, envío de códigos, eventos de ciclo de vida y métricas por canal.',
+            'Implementé un servicio de screening AML que integra una API externa de OFAC, con niveles de riesgo y publicación de eventos.',
+            'Contribuí a un servicio de ledger de doble partida. El trabajo se entrega con pull requests y pipelines de CI en Bitbucket.'
+          ] },
+        { name: 'Grumpy Games', role: 'Programador', when: 'Sep 2025 – Jul 2026', where: 'Valencia, España',
+          blurb: 'Programador de gameplay en Beerserker: The Stolen Brew, publicado en Steam. Hecho con Unreal Engine.',
+          bullets: [
+            'Implementé el comportamiento de la IA con Behavior Trees y State Trees.',
+            'Integré el audio con FMOD en el juego.',
+            'Programé los hazards del juego.'
+          ] }
+      ],
+      projects: [
+        { name: 'Beerserker: The Stolen Brew', role: 'Programador de gameplay', kind: 'Publicado en Steam · Unreal Engine', when: 'Sep 2025 – Jul 2026 · Grumpy Games',
+          media: { src: 'clips/beerserker.mp4', poster: 'clips/beerserker-poster.jpg', ar: '16 / 9', cap: 'Imágenes del juego' },
+          bullets: [
+            'Implementé el comportamiento de la IA con Behavior Trees y State Trees.',
+            'Integré el audio con FMOD en el juego.',
+            'Programé los hazards del juego.'
+          ],
+          tags: ['Unreal Engine', 'FMOD', 'Behavior Trees', 'State Trees'], cats: ['shipped', 'unreal'],
+          details: [['Rol', 'Programador de gameplay, a tiempo parcial'], ['Estudio', 'Grumpy Games, Valencia'], ['Periodo', 'Sep 2025 – Jul 2026 (11 meses)'], ['Plataforma', 'Steam'], ['Motor', 'Unreal Engine'], ['Mi trabajo', 'Comportamiento de la IA con Behavior Trees y State Trees, integración de audio con FMOD, hazards del juego']] },
+        { name: 'Nowhere Engine', role: 'Programador de motor', kind: 'Motor de render 3D · C++20', when: 'Oct 2025 – May 2026 · Equipo de 2',
+          media: { src: 'clips/nowhere.mp4', poster: 'clips/nowhere-poster.jpg', ar: '16 / 9', cap: 'Escena de demo del motor' },
+          bullets: [
+            'Co-desarrollé un motor con backend OpenGL, backend Vulkan en progreso, ECS basado en arquetipos, scripting en Lua y editor con ImGui.',
+            'Implementé el gestor de input, el sistema de entidades y jobs, el cargador de modelos Assimp, el sistema de cámara, el shadow mapping y el skybox.',
+            'Integré JoltPhysics con vista de debug de colliders y panel de editor, y trabajé en el sistema de animación.'
+          ],
+          tags: ['C++20', 'OpenGL', 'Vulkan', 'ECS', 'Lua', 'ImGui', 'JoltPhysics'], cats: ['engine'],
+          details: [['Rol', 'Programador de motor, co-desarrollador'], ['Equipo', '2 programadores'], ['Periodo', 'Oct 2025 – May 2026'], ['Render', 'Backend OpenGL, backend Vulkan en progreso, shadow mapping, skybox'], ['Arquitectura', 'ECS basado en arquetipos, sistema de jobs, scripting en Lua, editor con ImGui'], ['Física', 'JoltPhysics: rigid bodies, colliders, flujo Play/Stop, vista de debug'], ['Calidad', '262 tests pasando y 44 shaders validados (README del proyecto, mayo 2026)']] },
+        { name: 'yo bro your house is being demolished btw', role: 'Programador de gameplay', kind: 'GMTK Game Jam 2026 · Unity', when: 'Jul 2026 · Proyecto en equipo',
+          media: { src: 'clips/gmtk26.mp4', poster: 'clips/gmtk26-poster.jpg', ar: '3 / 2', cap: 'Imágenes del juego' },
+          bullets: ['Interacciones físicas de agarrar y arrastrar: controlador de jugador, objetos recogibles, brazo de cuerda, zonas de entrega y puertas con peso.'],
+          tags: ['Unity', 'C#', 'Game jam'], cats: ['unity'],
+          details: [['Rol', 'Programador de gameplay'], ['Evento', 'GMTK Game Jam 2026'], ['Periodo', 'Jul 2026'], ['Motor', 'Unity, C#'], ['Mi trabajo', 'Controlador de jugador, objetos recogibles, física de agarrar y arrastrar, brazo de cuerda, zonas de entrega, puertas con peso']] },
+        { name: 'Julia Set Renderer', role: 'Programador de bajo nivel', kind: 'C vs. ensamblador AArch64', when: 'Programación de bajo nivel',
+          bullets: ['Medí el rendimiento de implementaciones en C y en ensamblador AArch64 de un renderizador del fractal de Julia (render por tiles, aritmética de punto fijo) y resumí los resultados estadísticamente.'],
+          tags: ['C', 'Ensamblador AArch64'], cats: ['lowlevel'],
+          details: [['Enfoque', 'Render por tiles y aritmética de punto fijo'], ['Trabajo', 'Versiones en C y en ensamblador AArch64 comparadas con benchmarking estadístico'], ['Contexto', 'Trabajo de programación de bajo nivel']] },
+        { name: 'Más Game Jams', role: 'Programador de gameplay', kind: 'Unity · C#', when: 'Proyectos en equipo',
+          jams: [
+            '<b>T/N Game Jam</b> (ene–feb 2026): varios minijuegos (gusano, sutura, RCP) y el gestor de audio.',
+            '<b>GMTK Game Jam 2025</b> (ago 2025): un personalizador de robots, su UI y el prototipo de combate.'
+          ],
+          tags: ['Unity', 'C#', 'Game jam'], cats: ['unity'] }
+      ],
+      skills: [
+        ['Lenguajes', ['Kotlin', 'C++', 'C#', 'C', 'Ensamblador AArch64', 'Lua', 'SQL']],
+        ['Backend', ['Spring Boot', 'WebFlux', 'R2DBC', 'Coroutines', 'Kafka', 'PostgreSQL', 'Redis', 'Flyway', 'REST / OpenAPI']],
+        ['Desarrollo de juegos', ['Unreal Engine', 'Unity', 'FMOD', 'Behavior Trees', 'State Trees', 'OpenGL', 'Vulkan', 'ECS', 'JoltPhysics', 'ImGui']],
+        ['Herramientas', ['Git', 'Docker', 'Gradle', 'Bitbucket Pipelines']]
+      ],
+      contact: { rows: [['Email', 'alejaviace4@gmail.com', 'copy'], ['GitHub', 'github.com/Alejavivi', 'https://github.com/Alejavivi'], ['LinkedIn', 'linkedin.com/in/alessandro-j-acevedo-peña-1a7b96349', 'https://www.linkedin.com/in/alessandro-j-acevedo-pe%C3%B1a-1a7b96349/']] }
+    }
+  };
+  var FILTERS = ['all', 'shipped', 'engine', 'unreal', 'unity', 'lowlevel'];
+
+  var lang = 'en', current = 'projects', filter = 'all', io = null;
+  try {
+    var saved = localStorage.getItem('portfolio-lang');
+    if (saved === 'es' || saved === 'en') lang = saved;
+    else if ((navigator.language || '').toLowerCase().indexOf('es') === 0) lang = 'es';
+  } catch (e) {
+    if ((navigator.language || '').toLowerCase().indexOf('es') === 0) lang = 'es';
+  }
+  var h = (location.hash || '').replace('#', '');
+  if (SECTIONS.indexOf(h) > -1) current = h;
+
+  var menu = document.getElementById('menu');
+  var panel = document.getElementById('panel');
+
+  function tags(list, ghost) {
+    return '<div class="tags">' + list.map(function (t) { return '<span class="tag' + (ghost ? ' ghost' : '') + '">' + t + '</span>'; }).join('') + '</div>';
+  }
+  function bullets(list) { return '<ul>' + list.map(function (b) { return '<li>' + b + '</li>'; }).join('') + '</ul>'; }
+
+  function project(p) {
+    var d = D[lang], html = '<article class="entry">';
+    if (p.media) {
+      html += '<div class="mediawrap"><div class="media" style="--ar:' + p.media.ar + '">' +
+        '<video muted loop playsinline preload="metadata" poster="' + p.media.poster + '" src="' + p.media.src + '" aria-label="' + p.name + '"></video>' +
+        '<span class="cap">' + p.media.cap + '</span>' +
+        '<button type="button" class="pp" data-pp="1">' + d.pause + '</button></div></div>';
+    }
+    html += '<div class="role">' + p.role + '</div><h2>' + p.name + '</h2><div class="meta"><span>' + p.kind + '</span><span>' + p.when + '</span></div>';
+    html += p.jams ? '<ul class="jams">' + p.jams.map(function (j) { return '<li>' + j + '</li>'; }).join('') + '</ul>' : bullets(p.bullets);
+    html += tags(p.tags);
+    if (p.details) {
+      html += '<details class="more"><summary>' + d.more + '</summary><dl class="facts">' +
+        p.details.map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>'; }).join('') + '</dl></details>';
+    }
+    return html + '</article>';
+  }
+
+  function body(id) {
+    var d = D[lang], i = 0;
+    function rise(html) { return '<div class="rise" style="--i:' + (i++) + '">' + html + '</div>'; }
+    if (id === 'status') {
+      return rise('<p class="lead">' + d.status.lead + '</p>') +
+        rise('<dl class="facts">' + d.status.facts.map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>'; }).join('') + '</dl>');
+    }
+    if (id === 'experience') {
+      return d.experience.map(function (e) {
+        return rise('<article class="entry"><h2>' + e.name + '</h2><div class="meta"><span>' + e.role + '</span><span>' + e.when + '</span><span>' + e.where + '</span></div><p>' + e.blurb + '</p>' + bullets(e.bullets) + '</article>');
+      }).join('');
+    }
+    if (id === 'projects') {
+      var chips = '<div class="filters" role="group" aria-label="Filter">' + FILTERS.map(function (f) {
+        return '<button type="button" class="chip" data-filter="' + f + '" aria-pressed="' + (f === filter) + '">' + d.filters[f] + '</button>';
+      }).join('') + '</div>';
+      var list = d.projects.filter(function (p) { return filter === 'all' || p.cats.indexOf(filter) > -1; });
+      return rise(chips) + list.map(function (p) { return rise(project(p)); }).join('');
+    }
+    if (id === 'skills') {
+      return rise('<div class="skillgrid">' + d.skills.map(function (g) { return '<section><h2>' + g[0] + '</h2>' + tags(g[1]) + '</section>'; }).join('') + '</div>');
+    }
+    return rise('<div class="contacts">' + d.contact.rows.map(function (r) {
+      var v = r[2] === 'copy' ? '<span class="v">' + r[1] + '</span><button type="button" class="btn" data-copy="' + r[1] + '">' + d.copy + '</button>'
+                              : '<span class="v"><a href="' + r[2] + '" target="_blank" rel="noopener">' + r[1] + '</a></span><span></span>';
+      return '<div class="contact"><span class="k">' + r[0] + '</span>' + v + '</div>';
+    }).join('') + '</div>');
+  }
+
+  function syncBtn(v) {
+    var b = v.parentNode.querySelector('.pp');
+    if (b) b.textContent = v.paused ? D[lang].play : D[lang].pause;
+  }
+  function wireVideos() {
+    if (io) { io.disconnect(); io = null; }
+    var vids = panel.querySelectorAll('video');
+    if (!vids.length) return;
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) {
+          if (!reduce && !v.dataset.held) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        } else v.pause();
+      });
+    }, { threshold: 0.35 });
+    Array.prototype.forEach.call(vids, function (v) {
+      v.addEventListener('play', function () { syncBtn(v); });
+      v.addEventListener('pause', function () { syncBtn(v); });
+      syncBtn(v);
+      io.observe(v);
+    });
+  }
+
+  function render() {
+    var d = D[lang];
+    document.documentElement.lang = lang;
+    document.getElementById('eyebrow').textContent = d.eyebrow;
+    document.getElementById('hint').innerHTML = d.hint;
+    document.getElementById('lang-en').setAttribute('aria-pressed', String(lang === 'en'));
+    document.getElementById('lang-es').setAttribute('aria-pressed', String(lang === 'es'));
+    menu.innerHTML = SECTIONS.map(function (id) {
+      var sel = id === current;
+      return '<button type="button" class="tab" role="tab" id="tab-' + id + '" data-id="' + id + '" aria-selected="' + sel + '" aria-controls="panel" tabindex="' + (sel ? 0 : -1) + '"><span class="t">' + d.menu[id][0] + '</span><small>' + d.menu[id][1] + '</small></button>';
+    }).join('');
+    var cur = document.getElementById('tab-' + current);
+    if (cur && menu.scrollWidth > menu.clientWidth) menu.scrollLeft = Math.max(0, cur.offsetLeft - 16);
+    panel.setAttribute('aria-labelledby', 'tab-' + current);
+    panel.innerHTML = '<div class="panel-head"><h1>' + d.menu[current][0] + '</h1><span class="tag">' + d.menu[current][1] + '</span></div><div class="panel-body">' + body(current) + '</div>';
+    wireVideos();
+  }
+
+  function select(id, focus) {
+    if (id === current && !focus) return;
+    current = id;
+    try { history.replaceState(null, '', '#' + id); } catch (e) {}
+    render();
+    if (focus) { var t = document.getElementById('tab-' + id); if (t) t.focus(); }
+  }
+
+  menu.addEventListener('click', function (e) {
+    var b = e.target.closest('.tab'); if (b) select(b.getAttribute('data-id'), false);
+  });
+  menu.addEventListener('keydown', function (e) {
+    var i = SECTIONS.indexOf(current), n = null;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') n = (i + 1) % SECTIONS.length;
+    else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = (i + SECTIONS.length - 1) % SECTIONS.length;
+    else if (e.key === 'Home') n = 0;
+    else if (e.key === 'End') n = SECTIONS.length - 1;
+    if (n !== null) { e.preventDefault(); select(SECTIONS[n], true); }
+  });
+  document.querySelector('.lang').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    lang = b.getAttribute('data-lang');
+    try { localStorage.setItem('portfolio-lang', lang); } catch (err) {}
+    render(); stamp();
+  });
+  panel.addEventListener('click', function (e) {
+    var f = e.target.closest('[data-filter]');
+    if (f) { filter = f.getAttribute('data-filter'); render(); var c = panel.querySelector('[data-filter="' + filter + '"]'); if (c) c.focus(); return; }
+    var pp = e.target.closest('[data-pp]');
+    if (pp) {
+      var v = pp.parentNode.querySelector('video');
+      if (v.paused) { v.dataset.held = ''; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      else { v.dataset.held = '1'; v.pause(); }
+      return;
+    }
+    var b = e.target.closest('[data-copy]'); if (!b) return;
+    var text = b.getAttribute('data-copy'), label = D[lang].copy;
+    function done() { b.textContent = D[lang].copied; setTimeout(function () { b.textContent = label; }, 1400); }
+    function fallback() {
+      try {
+        var el = b.previousElementSibling, r = document.createRange();
+        r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+        document.execCommand('copy');
+      } catch (err) {}
+      done();
+    }
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (err) { fallback(); }
+  });
+
+  function stamp() {
+    var n = new Date();
+    document.getElementById('md').textContent = String(n.getMonth() + 1).padStart(2, '0') + '/' + String(n.getDate()).padStart(2, '0');
+    var w; try { w = new Intl.DateTimeFormat(lang, { weekday: 'short' }).format(n); } catch (e) { w = ''; }
+    document.getElementById('dow').textContent = w.replace('.', '');
+  }
+
+  render(); stamp();
+})();
+</script>
+</body>
+</html>
